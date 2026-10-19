@@ -1,9 +1,11 @@
-pandas
-numpy
-scikit-learn
-networkx
-gensim
-snorkel
-torch
-pytest
+# Tested on Python 3.13 (versions pinned in step 2)
+pandas==3.0.5
+numpy==2.5.3
+scikit-learn==1.9.1
+networkx==3.6.1
+gensim==4.4.0
+snorkel==0.10.0
+# CPU build is enough: pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch==2.14.1
+pytest==9.1.1
 # LLM-based extraction (Phase 3): add the SDK you use, e.g. openai or anthropic
