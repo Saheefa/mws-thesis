@@ -1,0 +1,131 @@
+{
+  "config": {
+    "dataset": "clickbait",
+    "scale": "large",
+    "method": "lda",
+    "tau": 0.2,
+    "seed": 42
+  },
+  "keywords": {
+    "non-clickbait": [
+      "us",
+      "kills",
+      "wins",
+      "president",
+      "says",
+      "georgia",
+      "dead",
+      "action",
+      "governor",
+      "income",
+      "killed",
+      "u",
+      "afghanistan",
+      "change",
+      "climate"
+    ],
+    "clickbait": [
+      "num",
+      "you",
+      "this",
+      "your",
+      "how",
+      "will",
+      "that",
+      "things",
+      "which",
+      "have",
+      "most",
+      "who",
+      "make",
+      "these",
+      "just"
+    ]
+  },
+  "n_patterns": {
+    "non-clickbait": 1,
+    "clickbait": 22
+  },
+  "train": {
+    "n": 25399,
+    "covered": 14942,
+    "coverage": 0.5883,
+    "lf_summary_unlabeled": {
+      "keyword": {
+        "coverage": 0.57,
+        "overlap": 0.327,
+        "conflict": 0.003
+      },
+      "regex": {
+        "coverage": 0.31,
+        "overlap": 0.304,
+        "conflict": 0.001
+      },
+      "ds_cluster": {
+        "coverage": 0.104,
+        "overlap": 0.092,
+        "conflict": 0.003
+      }
+    },
+    "soft_label_class_share": {
+      "non-clickbait": 0.1687,
+      "clickbait": 0.8313
+    }
+  },
+  "best_epoch": 5,
+  "dev_macro_f1_by_epoch": [
+    0.8116,
+    0.8684,
+    0.8684,
+    0.8684,
+    0.9045,
+    0.8891,
+    0.8842,
+    0.8942,
+    0.8891,
+    0.8891,
+    0.8788,
+    0.884,
+    0.879,
+    0.8788,
+    0.884
+  ],
+  "test": {
+    "per_class": {
+      "non-clickbait": {
+        "precision": 0.9433,
+        "recall": 0.5716,
+        "f1": 0.7118,
+        "support": 3200
+      },
+      "clickbait": {
+        "precision": 0.6927,
+        "recall": 0.9656,
+        "f1": 0.8067,
+        "support": 3200
+      }
+    },
+    "macro_f1": 0.7592,
+    "weighted_f1": 0.7592,
+    "accuracy": 0.7686
+  },
+  "reference_dev_only_test": {
+    "per_class": {
+      "non-clickbait": {
+        "precision": 0.8985,
+        "recall": 0.8159,
+        "f1": 0.8552,
+        "support": 3200
+      },
+      "clickbait": {
+        "precision": 0.8314,
+        "recall": 0.9078,
+        "f1": 0.8679,
+        "support": 3200
+      }
+    },
+    "macro_f1": 0.8616,
+    "weighted_f1": 0.8616,
+    "accuracy": 0.8619
+  }
+}

@@ -38,3 +38,16 @@ python -m pytest -q tests
 ```
 
 Dataset: Chakraborty et al. (2016), *Stop Clickbait*, ASONAM. Cite it if you use the data.
+
+## Results so far
+Step 2, LDA baseline on Clickbait (tau = 0.2 manual default, seed 42; JSON in `results/`):
+
+| scale | Train coverage | macro-F1 | weighted-F1 | accuracy | non-clickbait P / R | clickbait P / R |
+|---|---|---|---|---|---|---|
+| large | 0.588 | **0.759** | 0.759 | 0.769 | 0.943 / 0.572 | 0.693 / 0.966 |
+| small | 0.629 | **0.789** | 0.789 | 0.795 | 0.957 / 0.619 | 0.718 / 0.972 |
+
+Reference: the same NN trained only on the 200 labeled Dev headlines reaches macro-F1 0.862, so the
+LDA baseline is below it. Diagnosis (no Train labels used): soft labels are 83% clickbait against a
+50/50 Dev prior; 22 regex patterns survive for clickbait but only 1 for non-clickbait, because the
+non-clickbait LDA keywords are topical (names, places) and rarely match new headlines.
