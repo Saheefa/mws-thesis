@@ -14,7 +14,7 @@ Multiple Weak Supervision for Short Text Classification* (extends Chen, Xiu & Di
 - `src/data.py`: loading, cleaning, Dev/Train/Test splits (label 1 = clickbait)
 - `src/make_splits.py`: CLI that writes the splits to `data/processed/`
 - `tests/`: sanity checks (`python tests/test_splits.py`)
-- `data/raw/`: put the original dataset files here (not committed)
+- `scripts/get_clickbait_data.sh`: downloads the raw Clickbait files into `data/raw/` (not committed)
 
 ## Data splits
 Dev = 100 headlines per class (labeled); Test = 20% held out; Train = the rest with ground
@@ -24,6 +24,7 @@ truth hidden in `y_hidden` (the pipeline must never read it). Fixed seed 42. Two
 ## Run
 ```
 pip install -r requirements.txt
+bash scripts/get_clickbait_data.sh
 python -m src.make_splits --cb data/raw/clickbait_data --ncb data/raw/non_clickbait_data
 python tests/test_splits.py
 ```

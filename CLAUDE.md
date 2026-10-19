@@ -49,10 +49,11 @@ experiments in this repo, step by step, with the student following along.
 
 ## Current status
 Done: project skeleton, `src/data.py` (load, clean, stratified Dev/Train/Test split, small-scale subsample), `src/make_splits.py` CLI, split tests (synthetic fixture only).
-Not done: running the splits on the real Clickbait data (needs the two raw files in `data/raw/`: `clickbait_data`, `non_clickbait_data`, one headline per line).
+Done (step 1): `scripts/get_clickbait_data.sh` downloads the raw files; splits run on real Clickbait data.
+Result: 31,999 headlines after cleaning (clickbait share 0.500). Dev 200 (100/class), Test 6,400, Train large 25,399 / small 2,000; every split 0.500 clickbait.
 
 ## Next steps (in order)
-1. Put the raw Clickbait files in `data/raw/`, run `python -m src.make_splits --cb data/raw/clickbait_data --ncb data/raw/non_clickbait_data`, report sizes and class balance.
+1. ~~Put the raw Clickbait files in `data/raw/`, run `python -m src.make_splits --cb data/raw/clickbait_data --ncb data/raw/non_clickbait_data`, report sizes and class balance.~~ (done)
 2. Baseline MWS with LDA only (gensim LDA on Dev, per class keywords -> 3 labeling functions -> Snorkel LabelModel -> soft labels -> BoW NN with soft cross-entropy -> Test metrics).
    Check that snorkel/gensim/torch install on the available Python; pin working versions in requirements.txt.
 3. Add TF-IDF, TextRank, LLM extractors behind the same interface (`extract(dev_df, class) -> keywords/patterns`).
