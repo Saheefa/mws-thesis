@@ -86,6 +86,19 @@ def save_splits(splits: dict[str, pd.DataFrame], out_dir: str | Path) -> None:
         frame.to_csv(out / f"{name}.csv", index=False)
 
 
+def load_pipeline_splits(in_dir: str | Path) -> dict[str, pd.DataFrame]:
+    """What the weak-supervision pipeline is allowed to see.
+
+    Train is read with `usecols=["title"]`, so `y_hidden` is never even loaded into memory.
+    """
+    d = Path(in_dir)
+    return {
+        "dev": pd.read_csv(d / "dev.csv"),
+        "train": pd.read_csv(d / "train.csv", usecols=["title"]),
+        "test": pd.read_csv(d / "test.csv"),
+    }
+
+
 def load_splits(in_dir: str | Path) -> dict[str, pd.DataFrame]:
     d = Path(in_dir)
     return {n: pd.read_csv(d / f"{n}.csv") for n in ("dev", "train", "test")}
