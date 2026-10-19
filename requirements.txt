@@ -1,0 +1,9 @@
+pandas
+numpy
+scikit-learn
+networkx
+gensim
+snorkel
+torch
+pytest
+# LLM-based extraction (Phase 3): add the SDK you use, e.g. openai or anthropic
